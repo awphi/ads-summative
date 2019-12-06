@@ -27,10 +27,3 @@ def descendants(n1, n2, k):
 		if(strength(i) == k):
 			z += 1
 	return z
-
-import time
-
-t = time.time()
-print(descendants(4, 1800000, 7))
-total = time.time() - t
-print("took", total)

@@ -4,7 +4,8 @@
 
 #####################################################
 
-
+from q2 import descendants
+import time
 
 def q2test():
     assert descendants(1,2,1) == 1
@@ -15,4 +16,8 @@ def q2test():
     assert descendants(123456,654321,20) == 4015
     assert descendants(1,1000000,59) == 402
     assert descendants(1,1000000,60) == 0
-    
+    print("all tests passed")
+
+t = time.time()
+q2test()
+print("took ", (time.time() - t))
