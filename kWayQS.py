@@ -24,43 +24,36 @@ def insertionsort(A):
             i -= 1
         A[i + 1] = x
     return A
-   
-    
+  
 def partition(A, k):
     n = len(A)
-    piv = n - k
-    pivots = A[piv:piv + k]
-    for pivot in pivots:
-        left = []
-        right = []
-        for j in A:
-            if(j > pivot):
-                right.append(j)
-            elif(pivot > j):
-                left.append(j)
-        A = left + [pivot] + right
+    pivots = insertionsort(A[n - k:n])
+    seqs = []
 
-    B = []
-    runner = []
+    for pivot in pivots:
+        seqs.append([])
+        seqs.append([pivot])
+    seqs.append([])
+
     for a in A:
         if(a in pivots):
-            if(len(runner) > 0):
-                B.append(runner)
-            B.append([a])
-            runner = []
+            continue
+
+        for i in range(0, len(pivots)):
+            pivot = pivots[i]
+            if(a < pivot):
+                seqs[2 * i].append(a)
+                break
         else:
-            runner.append(a)
-    B.append(runner)
-    return B
-
-
+            seqs[2 * i + 2].append(a)
+    return seqs
     
 
 def quicksort(A, k):
     parts = partition(A, k)
     for i in range(0, len(parts)):
         n = len(parts[i])
-        
+
         if(n <= 1):
             continue;
         elif(n < 2 * k):
