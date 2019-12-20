@@ -11,7 +11,7 @@ def hash_double(keys):
 		h2k = h2(k)
 		j = 0
 
-		while(table_double[ak] != '-'):
+		while(table_double[ak] != '-' and '-' in table_double):
 			ak = (hk + (j * h2k)) % 23
 			j += 1
 
