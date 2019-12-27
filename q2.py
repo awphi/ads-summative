@@ -24,9 +24,15 @@ def strength(i, k):
 			break
 		x = child(x)
 
+	idx = children.index(x)
+	n = len(children)
+
+	for j in reversed(range(0, idx)):
+		des_cache[children[j]] = children[j + 1:n]
+
 	des_cache[i] = children
 
-	return len(children) == k
+	return n == k
 
 def descendants(n1, n2, k):
 	z = 0
