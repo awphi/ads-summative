@@ -9,6 +9,7 @@ def child(i):
 		i //= 10
 	return s
 
+#maybe sort the number (like a string) and cache/recall from the cache with that?
 def strength(i, k):
 	children = []
 	x = child(i)
