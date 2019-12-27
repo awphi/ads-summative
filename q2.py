@@ -9,21 +9,28 @@ def child(i):
 		i //= 10
 	return s
 
-def strength(i):
+def strength(i, k):
 	children = []
 	x = child(i)
 	while(not(x in children)):
 		children.append(x)
 		if(x in des_cache):
-			children = list(set(children + des_cache[x]))
+			a = des_cache[x]
+			for j in children:
+				if(j in des_cache[x]):
+					a = des_cache[x][0:des_cache[x].index(j)]
+					break
+			children = children + a
 			break
 		x = child(x)
+
 	des_cache[i] = children
-	return len(children)
+
+	return len(children) == k
 
 def descendants(n1, n2, k):
 	z = 0
-	for i in range(n1, n2):
-		if(strength(i) == k):
+	for i in reversed(range(n1, n2)):
+		if(strength(i, k)):
 			z += 1
 	return z

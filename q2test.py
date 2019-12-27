@@ -20,4 +20,4 @@ def q2test():
 
 t = time.time()
 q2test()
-print("took ", (time.time() - t))
+print("took overall", (time.time() - t))
