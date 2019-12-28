@@ -9,13 +9,14 @@ def child(i):
 		i //= 10
 	return s
 
-#maybe sort the number (like a string) and cache/recall from the cache with that?
 def strength(i, k):
 	children = []
 	x = child(i)
+	
 	while(not(x in children)):
 		children.append(x)
 		if(x in des_cache):
+			#removing duplicates
 			a = des_cache[x]
 			for j in children:
 				if(j in des_cache[x]):
@@ -24,14 +25,14 @@ def strength(i, k):
 			children = children + a
 			break
 		x = child(x)
-
-	idx = children.index(x)
+	
 	n = len(children)
 
-	for j in reversed(range(0, idx)):
-		des_cache[children[j]] = children[j + 1:n]
-
-	des_cache[i] = children
+	#caching all known subsets
+	c = 0
+	while(not(children[c] == x)):
+		des_cache[children[c]] = children[c + 1:n]
+		c += 1
 
 	return n == k
 

@@ -18,6 +18,7 @@ def q2test():
     assert descendants(1,1000000,60) == 0
     print("all tests passed")
 
+
 t = time.time()
 q2test()
 print("took overall", (time.time() - t))
