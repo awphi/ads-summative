@@ -5,7 +5,7 @@ def h2(k):
 	return 17 - (k % 17)
 
 def hash_double(keys):
-	table_double = ['-'] * 23;
+	table_double = ['-'] * 23
 	for k in keys:
 		ak = hk = h(k)
 		h2k = h2(k)
@@ -20,7 +20,7 @@ def hash_double(keys):
 
 
 def hash_quartic(keys):
-	table_quartic = ['-'] * 23;
+	table_quartic = ['-'] * 23
 	for k in keys:
 		ak = hk = h(k)
 		j = 0

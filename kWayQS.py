@@ -55,8 +55,8 @@ def quicksort(A, k):
         n = len(parts[i])
 
         if(n <= 1):
-            continue;
-        elif(n < 2 * k):
+            continue
+        elif(n <= 2 * k):
             parts[i] = insertionsort(parts[i])
         else:
             parts[i] = quicksort(parts[i], k)
