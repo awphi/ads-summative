@@ -151,36 +151,5 @@ def LP2(string):
         if(lpsub > mx):
             mx = lpsub
     return mx
-
-    
-    
-    
-def tests():
-    assert LOP("a") == 1
-    assert LOP("abba") == 1
-    assert LOP("abbac") == 1
-    assert LOP("abcdefg") == 1
-    assert LOP("abbabba") == 7
-    assert LOP("banana") == 5
-    
-    assert LP("a") == 1
-    assert LP("abba") == 4
-    assert LP("abbac") == 4
-    assert LP("abcdefg") == 1
-    assert LP("abbabba") == 7
-    assert LP("banana") == 5
-    assert LP("abcdefgfhijkl") == 3
-        
-    assert LP2("a") == 1
-    assert LP2("cbc") == 3
-    assert LP2("abba") == 4
-    assert LP2("abbac") == 5
-    assert LP2("abcdefg") == 1
-    assert LP2("abbabba") == 7
-    assert LP2("banana") == 5
-    assert LP2("abcdefgfhijkl") == 3
-    print("all tests passed")
-
-tests()
     
     
